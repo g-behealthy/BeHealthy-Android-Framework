@@ -214,12 +214,12 @@
         </dependency>
         <dependency>
             <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-crashlytics</artifactId>
+            <artifactId>firebase-crashlytics-ktx</artifactId>
             <version>28.3.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-analytics</artifactId>
+            <artifactId>firebase-analytics-ktx</artifactId>
             <version>28.3.1</version>
         </dependency>
         <dependency>
