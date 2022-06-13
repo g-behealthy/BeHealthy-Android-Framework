@@ -4,6 +4,7 @@
     <groupId>com.globant.behealthylibrary</groupId>
     <artifactId>behealthylibrary</artifactId>
     <version>2.4</version>
+    <packaging>com.globant.behealthylibrary</packaging>
     <dependencies>
         <dependency>
             <groupId>androidx.compose.ui</groupId>
