@@ -3,63 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.globant.behealthylibrary</groupId>
     <artifactId>behealthylibrary</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <dependencies>
-        <dependency>
-            <groupId>androidx.compose.ui</groupId>
-            <artifactId>ui</artifactId>
-            <version>1.0.5</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.compose.ui</groupId>
-            <artifactId>ui-tooling</artifactId>
-            <version>1.0.5</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.compose.foundation</groupId>
-            <artifactId>foundation</artifactId>
-            <version>1.0.5</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.compose.material</groupId>
-            <artifactId>material</artifactId>
-            <version>1.2.0-beta03</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.activity</groupId>
-            <artifactId>activity-compose</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.lifecycle</groupId>
-            <artifactId>lifecycle-viewmodel-compose</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>androidx.constraintlayout</groupId>
-            <artifactId>constraintlayout-compose</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-crashlytics</artifactId>
-            <version>18.2.11</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-analytics</artifactId>
-            <version>21.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-config-ktx</artifactId>
-            <version>21.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-messaging-ktx</artifactId>
-            <version>23.0.5</version>
-        </dependency>
         <dependency>
             <groupId>androidx.core</groupId>
             <artifactId>core-ktx</artifactId>
@@ -186,6 +131,41 @@
             <version>1.1.0</version>
         </dependency>
         <dependency>
+            <groupId>androidx.compose.ui</groupId>
+            <artifactId>ui</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.compose.ui</groupId>
+            <artifactId>ui-tooling</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.compose.foundation</groupId>
+            <artifactId>foundation</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.compose.material</groupId>
+            <artifactId>material</artifactId>
+            <version>1.2.0-beta03</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.activity</groupId>
+            <artifactId>activity-compose</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.lifecycle</groupId>
+            <artifactId>lifecycle-viewmodel-compose</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>androidx.constraintlayout</groupId>
+            <artifactId>constraintlayout-compose</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>androidx.work</groupId>
             <artifactId>work-runtime-ktx</artifactId>
             <version>2.7.1</version>
@@ -224,6 +204,26 @@
             <groupId>com.auth0.android</groupId>
             <artifactId>jwtdecode</artifactId>
             <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-crashlytics</artifactId>
+            <version>18.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-analytics</artifactId>
+            <version>21.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-config-ktx</artifactId>
+            <version>21.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-messaging-ktx</artifactId>
+            <version>23.0.5</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.moshi</groupId>
