@@ -46,7 +46,8 @@ Note: BeHealthy makes use of external libraries so it is necessary to use the tr
 To embed full content (login + progress + achievements) of BeHealthy framework
 
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
@@ -65,7 +66,8 @@ To embed core content (progress + achievements) of BeHealthy framework
 
 
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
@@ -83,7 +85,8 @@ fun someMethod() {
 Community value is granted to you by BeHealthy team:
 
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
@@ -105,7 +108,8 @@ You can provide a token for backend integration, with the parameter "token" in t
  Example: 
  
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
@@ -125,7 +129,8 @@ There are 3 supported colors for BeHealthy framework: primary, secondary and ter
 NOTE: only send the hexadecimal color code without # symbol.
 
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
@@ -166,7 +171,8 @@ In order to support push notifications a Firebase project is required. Select th
 To enroll a new user to BeHealthy 
 
 ```
-val client = IBeHealthyClient.getInstance()
+@Inject
+    lateinit var client: BeHealthyClient
 .
 .
 .
