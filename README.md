@@ -46,7 +46,7 @@ Note: BeHealthy makes use of external libraries so it is necessary to use the tr
 To embed full content (login + progress + achievements) of BeHealthy framework
 
 ```
-@Inject
+    @Inject
     lateinit var client: BeHealthyClient
 .
 .
@@ -66,7 +66,7 @@ To embed core content (progress + achievements) of BeHealthy framework
 
 
 ```
-@Inject
+    @Inject
     lateinit var client: BeHealthyClient
 .
 .
@@ -85,7 +85,7 @@ fun someMethod() {
 Community value is granted to you by BeHealthy team:
 
 ```
-@Inject
+    @Inject
     lateinit var client: BeHealthyClient
 .
 .
@@ -108,7 +108,7 @@ You can provide a token for backend integration, with the parameter "token" in t
  Example: 
  
 ```
-@Inject
+    @Inject
     lateinit var client: BeHealthyClient
 .
 .
@@ -129,7 +129,7 @@ There are 3 supported colors for BeHealthy framework: primary, secondary and ter
 NOTE: only send the hexadecimal color code without # symbol.
 
 ```
-@Inject
+    @Inject
     lateinit var client: BeHealthyClient
 .
 .
