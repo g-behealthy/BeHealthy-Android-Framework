@@ -158,7 +158,8 @@ Additionally, it is necessary to create a new file in res/values with the name c
 <color name="be_healthy_secondary_icon_color">#your secondary color</color>
 <color name="be_healthy_tertiary_color">#your tertiary color</color>
 ```
-<img src="https://github.globant.com/storage/user/8812/files/6c33b01f-86f9-416f-8a44-1943bc7c1d3f">
+![6c33b01f-86f9-416f-8a44-1943bc7c1d3f](https://user-images.githubusercontent.com/106997285/180485692-11b0a3cf-7577-4680-94e8-975bc867f675.jpeg)
+
 
 
 ## Push notifications
@@ -254,11 +255,13 @@ Now in your manifest you must add the following code, before closing the </appli
 
   a.- In your root-level (project-level) Gradle file (build.gradle), add rules to include the Google Services Gradle plugin. Check that you have Google's Maven repository, as well.
 
-<img width="698" alt="Screen Shot 2022-06-15 at 18 14 32" src="https://github.globant.com/storage/user/8812/files/f7ed4882-9d0c-4ef6-b278-9fbc99e26900">
+<img width="698" alt="f7ed4882-9d0c-4ef6-b278-9fbc99e26900" src="https://user-images.githubusercontent.com/106997285/180486349-191552f1-ecaf-4deb-b84a-4a8e59a15c49.png">
+
 
   b.- In your module (app-level) Gradle file (usually app/build.gradle), apply the Google Services Gradle plugin
-    
-<img width="675" alt="Screen Shot 2022-06-15 at 18 15 28" src="https://github.globant.com/storage/user/8812/files/c2132753-a95c-496f-8e3b-55efed5911ee">
+
+<img width="675" alt="c2132753-a95c-496f-8e3b-55efed5911ee" src="https://user-images.githubusercontent.com/106997285/180486518-92769a77-4533-4e3c-ad3a-87b6f314a765.png">
+
 
 If you need more information, please check the official documentation.
 
@@ -271,27 +274,33 @@ https://firebase.google.com/docs/android/setup#register-app
 
 Firstable, create a new project from Google Cloud Platform, to do this, log in https://console.cloud.google.com/, once logged in, in the top bar the project should appear, otherwise you should see the option create new project.
 
-<img width="753" alt="Screen Shot 2022-05-03 at 13 32 57" src="https://github.globant.com/storage/user/8812/files/e8761297-e1fd-4d7b-8cd3-7aec142d4733">
+<img width="753" alt="e8761297-e1fd-4d7b-8cd3-7aec142d4733" src="https://user-images.githubusercontent.com/106997285/180486763-fe144cea-eabf-4212-99ff-9c47a194726b.png">
 
 **Enable the Google Fit API**
 
 Once the project is created, it is necessary to activate the use of the "Fitness API" service, to do this in the search engine look for "Fitness", it will appear as the first option
 
-![image](https://github.globant.com/storage/user/8812/files/0fa6ecf1-8119-45d3-bd03-3e72dc2a5137)
+![0fa6ecf1-8119-45d3-bd03-3e72dc2a5137](https://user-images.githubusercontent.com/106997285/180486789-8be30697-1c58-4522-abce-5fa14d6958e3.png)
+
 
 When you select it a new screen will appear with an Enable Fitness API button, when it's activated you should see a screen like this: 
 
-![image](https://github.globant.com/storage/user/8812/files/4be4cbbc-03e3-42a0-b639-baecad6b739c)
+![4be4cbbc-03e3-42a0-b639-baecad6b739c](https://user-images.githubusercontent.com/106997285/180486808-4cd13a8c-a0f2-476a-881a-81c1f5021c40.png)
+
 
 **Authorization scopes**
 
 Now it is necessary to activate the scopes which BeHealthy library needs, to do this go to the following option, where xxx is the name you give to your project in GCP:
 
-<img width="645" alt="Screen Shot 2022-05-03 at 13 48 25" src="https://github.globant.com/storage/user/8812/files/cc94b0cf-6243-493d-bdb5-1c9958bc7de2">
+<img width="645" alt="cc94b0cf-6243-493d-bdb5-1c9958bc7de2" src="https://user-images.githubusercontent.com/106997285/180488333-65a78f80-0208-44b0-9224-a2018878f8a0.png">
+
+
 
 Click on "EDIT APP" and go to step two, where you will find the option to add scope, you must add the ones indicated in the image:
 
-![image](https://github.globant.com/storage/user/8812/files/4b31c1f6-bbb6-488f-b4e0-6fcc6b87d32d)
+![4b31c1f6-bbb6-488f-b4e0-6fcc6b87d32d](https://user-images.githubusercontent.com/106997285/180487638-f5580199-6faf-4c6e-aad2-ddcdd5ccf4a0.png)
+
+
 
 More information: https://developers.google.com/fit/datatypes#authorization_scopes
 
@@ -350,7 +359,8 @@ Important:
     com.globant.behealthy://redirect
 ```
 
-![Screen Shot 2022-06-16 at 4 26 22 PM](https://github.globant.com/storage/user/8812/files/249bc9ee-1a1a-4db3-9a62-64b5cb929818)
+![249bc9ee-1a1a-4db3-9a62-64b5cb929818](https://user-images.githubusercontent.com/106997285/180487358-a2aec5c4-eab0-4997-80a4-f5b78cde2702.png)
+
 
 Agree and click Register. You should get a screen with your `Client Id`. Copy this client id you are going to need it later.
 
