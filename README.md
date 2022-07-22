@@ -158,7 +158,8 @@ Additionally, it is necessary to create a new file in res/values with the name c
 <color name="be_healthy_secondary_icon_color">#your secondary color</color>
 <color name="be_healthy_tertiary_color">#your tertiary color</color>
 ```
-![Screenshot_2022-06-15-17-35-49-385_com globant behealthy dev](https://github.globant.com/storage/user/8812/files/6c33b01f-86f9-416f-8a44-1943bc7c1d3f)
+<img width="1086" alt="e67c0bfd-87e7-40da-a874-fb37f95f77c0" src="https://github.globant.com/storage/user/8812/files/6c33b01f-86f9-416f-8a44-1943bc7c1d3f">
+
 
 
 ## Push notifications
