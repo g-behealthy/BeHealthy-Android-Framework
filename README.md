@@ -290,55 +290,82 @@ When you select it a new screen will appear with an Enable Fitness API button, w
 
 **Authorization scopes**
 
-Now it is necessary to activate the scopes which BeHealthy library needs, to do this go to the following option, where xxx is the name you give to your project in GCP:
+**When to go through verification**
 
-<img width="645" alt="cc94b0cf-6243-493d-bdb5-1c9958bc7de2" src="https://user-images.githubusercontent.com/106997285/180488333-65a78f80-0208-44b0-9224-a2018878f8a0.png">
+You need to go through verification before you launch a user-facing app. You can continue to build and test your app while waiting to complete verification. When your app is successfully verified, the unverified app screen is removed from your client.
+You don't need to go through verification for the following kinds of apps:
+- Apps in development: if your app is experimental or a test build, you don't need to go through verification unless you decide to launch it to the public.
+- OAuth-based plugins: if you're setting up an OAuth-based plugin for a popular platform, such as SMTP for WordPress, you don't need to go through the verification process.
+- Internal apps: if your app is an internal web app for users in the same G Suite domain and the app is associated with a Cloud Organization that all of your users belong to, you don't need to go through verification. For more information, see public and internal applications.
 
+**All apps**
 
+Steps to prepare for verification
 
-Click on "EDIT APP" and go to step two, where you will find the option to add scope, you must add the ones indicated in the image:
+All apps that request access to data using Google APIs must complete brand verification. Make sure all branding information on the OAuth consent screen, such as the project name shown to users, support email, homepage URL, privacy policy URL, and so on, accurately represents the app's identity.
 
-![4b31c1f6-bbb6-488f-b4e0-6fcc6b87d32d](https://user-images.githubusercontent.com/106997285/180487638-f5580199-6faf-4c6e-aad2-ddcdd5ccf4a0.png)
+Make sure that your homepage meets the following requirements:
+- Your homepage must be publicly accessible, and not behind a sign-in page.
+- Your homepage must make clear its relevance to the app you’re verifying.
+- Your homepage must be accurate, inclusive, and easily accessible to all users.
+- Links to the Google Play Store or Facebook are not considered valid application homepages.
 
+Make sure that your app's Privacy Policy meets the following requirements:
 
+- The Privacy Policy must be visible to users, hosted within the domain of your website, and linked from the OAuth consent screen on the Google API Console.
+- The Privacy Policy must disclose the manner in which your application accesses, uses, stores, or shares Google user data. Your use of Google user data must be limited to the practices disclosed in your published Privacy Policy.
 
-More information: https://developers.google.com/fit/datatypes#authorization_scopes
+**Apps requesting sensitive scopes**
 
-**Create Credentials**
+Steps for apps requesting sensitive scopes
 
-Get an OAuth 2.0 Client ID
+1. Complete the preparation steps for All apps.
 
-As a first step it is necessary to create a Client ID from Google cloud platform, to do this follow the steps detailed below.
+2. Prepare a detailed justification for each requested scope as well as an explanation for why a narrower scope wouldn't be sufficient. For example: My app will use https://www.googleapis.com/auth/calendar to show a user's Google calendar data on the scheduling screen of my app, so that users can manage their schedules through my app and sync the changes with their Google calendar.
 
-Follow these steps to enable the Fitness API in the Google API Console and get an OAuth 2.0 client ID.
+3. Your requested scope must be as granular as possible (if your requested scope goes beyond the usage needed, then we will either reject your request or suggest a more applicable scope).
+- Prepare a video that fully demonstrates the OAuth grant process by users and shows, in detail, the usage of sensitive scopes in the app.
+- Show that the OAuth Consent Screen correctly displays the App Name.
+- Show the OAuth grant process that users will experience, in English (the consent flow, and, if you use Google Sign-in, the sign-in flow).
+- Show that the URL bar of the OAuth Consent Screen correctly includes your app’s Client ID.
+Note: This is not required for chrome extensions, native Android, and iOS apps.
+Show how the data will be used by demonstrating the functionality enabled by each sensitive and restricted scope you request.
 
-1.- Go to the Google API Console.
+4. Upload the video to YouTube. You’ll need to provide a link to the video as part of the verification process. Let us know if your app requires registration or features a local login. If any of your OAuth clients are not ready for production, we suggest you delete or remove them from the project requesting verification. You can do this in the Google Cloud Console.
 
-2.- Select a project, or create a new one. Use the same project for the Android and REST versions of your app.
+**How is this info presented to users?**
 
-3.- Click Continue to enable the Fitness API.
+This is the consent screen that users see
 
-4.- Click Go to credentials.
+<img width="894" alt="Screen Shot 2022-09-22 at 1 57 12 PM" src="https://user-images.githubusercontent.com/105304517/191855272-389eac49-5efa-4327-b0de-afd3083ccd1a.png">
 
-5.- Click New credentials, then select OAuth Client ID.
+**How to send a project to verification?**
 
-6.- Under Application type select Android.
+Go to Google Cloud Console, select your project and select APIs & Services option
 
-7.- In the resulting dialog, enter your app's SHA-1 fingerprint and package name. For example:
+<img width="1792" alt="Screen Shot 2022-09-22 at 3 11 33 PM" src="https://user-images.githubusercontent.com/105304517/191855726-a7c69cb3-aff2-4877-a25f-bb0326754b95.png">
 
-BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75
+If you have an OAuth 2.0 client ID associated with your project you can skip this section, otherwise, select Credentials section and create a new credential, select OAuth client ID option
 
-com.example.android.fit-example
+<img width="1792" alt="Screen Shot 2022-09-22 at 3 19 05 PM" src="https://user-images.githubusercontent.com/105304517/191855766-28a10cf0-52b3-4bd1-b76d-4ad690848a89.png">
 
-8.- Click Create. Your new Android OAuth 2.0 Client ID and secret appear in the list of IDs for your project. An OAuth 2.0 Client ID is a string of characters, something like this:
+For Application Type select Android, and fill the other fields of the form with the following information:
 
-780816631155-gbvyo1o7r2pn95qc4ei9d61io4uh48hl.apps.googleusercontent.com
+<img width="1792" alt="Screen Shot 2022-09-22 at 3 20 37 PM" src="https://user-images.githubusercontent.com/105304517/191855804-bca2415a-9d2e-4431-9185-0803c65ce214.png">
 
-More information: https://developers.google.com/fit/android/get-api-key
+**Name:** the name you want for client ID, it’ll be better if it’s something related with production or release
+**Package Name:** package name of your Android application
+**SHA-1:** this information can be obtained from your Google Play Console, select the app and go to Setup > App Integrity > App Signing
 
-IMPORTANT: 
-Google requires a verification process for production apps, you can find more information in the next link 
-[Submitting your app for verification](https://support.google.com/cloud/answer/9110914#submit-app-ver)
+After you create your OAuth Client ID, go to the OAuth consent screen section, click EDIT APP and follow the instructions in order to send the project to verification.
+
+<img width="1792" alt="Screen Shot 2022-09-22 at 3 31 02 PM" src="https://user-images.githubusercontent.com/105304517/191855924-ade694ec-46b3-42df-82ae-e150ad0ab6a2.png">
+
+Scopes to send to verification
+
+<img width="519" alt="Screen Shot 2022-09-22 at 2 52 47 PM" src="https://user-images.githubusercontent.com/105304517/191856570-ccd66957-abe6-400f-bcf9-f6c2e3dc003d.png">
+
+Verification process can take up to 4-6 weeks.
 
 
 ## Fitbit configuration
