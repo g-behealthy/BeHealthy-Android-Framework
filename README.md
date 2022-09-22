@@ -347,7 +347,7 @@ Go to Google Cloud Console, select your project and select APIs & Services optio
 
 If you have an OAuth 2.0 client ID associated with your project you can skip this section, otherwise, select Credentials section and create a new credential, select OAuth client ID option
 
-<img width="1792" alt="Screen Shot 2022-09-22 at 3 19 05 PM" src="https://user-images.githubusercontent.com/105304517/191855766-28a10cf0-52b3-4bd1-b76d-4ad690848a89.png">
+<img width="1792" alt="Screen Shot 2022-09-22 at 3 19 05 PM" src="https://user-images.githubusercontent.com/105304517/191858066-d5843e59-0497-40ac-8364-a17e65089706.png">
 
 For Application Type select Android, and fill the other fields of the form with the following information:
 
