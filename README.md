@@ -4,7 +4,7 @@
 
 | Version | Release date |
 | - | - |
-| | |
+| 1.0.1 | Jul 18th, 2022|
 
 
 ## Requirements
