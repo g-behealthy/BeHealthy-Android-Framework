@@ -35,7 +35,7 @@ In the settings.gradle file of your project add maven with the url of Jitpack.io
 Now with the Jitpack repository, you can deploy BeHealthy as a new dependency, in your module (app-level) Gradle file (usually app/build.gradle)
 
 ```
-implementation("com.github.g-behealthy:BeHealthy-Android-Framework:2.8@aar"){transitive true}
+implementation("com.github.g-behealthy:BeHealthy-Android-Framework:1.2.2@aar"){transitive true}
 ```
 
 Note: BeHealthy makes use of external libraries so it is necessary to use the transitive true flag to obtain them.
