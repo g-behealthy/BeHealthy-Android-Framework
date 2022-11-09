@@ -185,6 +185,40 @@ fun someMethod() {
 }
 ```
 
+## Enable / Disable Analytics
+
+Enable analytics:
+
+```
+@Inject
+    lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(true)
+}
+```
+
+Disable analytics:
+
+```
+@Inject
+    lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(false)
+}
+```
+
 
 ## Dependency injection
 
