@@ -5,6 +5,7 @@
 | Version | Release date |
 | - | - |
 | 1.0.1 | Jul 18th, 2022|
+| 1.2.2 | Oct 13rd, 2022|
 
 
 ## Requirements
@@ -45,6 +46,8 @@ Note: BeHealthy makes use of external libraries so it is necessary to use the tr
 
 To embed full content (login + progress + achievements) of BeHealthy framework
 
+### Kotlin
+
 ```
     @Inject
     lateinit var client: BeHealthyClient
@@ -64,6 +67,7 @@ fun someMethod() {
 
 To embed core content (progress + achievements) of BeHealthy framework
 
+### Kotlin
 
 ```
     @Inject
@@ -84,6 +88,8 @@ fun someMethod() {
 
 Community value is granted to you by BeHealthy team:
 
+### Kotlin
+
 ```
     @Inject
     lateinit var client: BeHealthyClient
@@ -101,11 +107,11 @@ fun someMethod() {
 
 ## Set token
 
-You can provide a token for backend integration, with the parameter "token" in the methods [startProgressApp](#core-access)
-
- and [startSDKEnrollmentApp](#sdk-enrollment).
+You can provide a token for backend integration, with the parameter "token" in the methods [startProgressApp](#core-access) and [startSDKEnrollmentApp](#sdk-enrollment).
  
- Example: 
+Example: 
+ 
+### Kotlin
  
 ```
     @Inject
@@ -127,6 +133,8 @@ fun someMethod() {
 There are 3 supported colors for BeHealthy framework: primary, secondary and tertiary, save colors with the next method.
 
 NOTE: only send the hexadecimal color code without # symbol.
+
+### Kotlin
 
 ```
     @Inject
@@ -169,7 +177,9 @@ In order to support push notifications a Firebase project is required. Select th
 
 ## SDK enrollment
 
-To enroll a new user to BeHealthy 
+To enroll a new user to BeHealthy
+
+### Kotlin
 
 ```
 @Inject
@@ -189,6 +199,8 @@ fun someMethod() {
 
 Enable analytics:
 
+### Kotlin
+
 ```
 @Inject
     lateinit var client: BeHealthyClient
@@ -204,6 +216,8 @@ fun someMethod() {
 ```
 
 Disable analytics:
+
+### Kotlin
 
 ```
 @Inject
@@ -240,7 +254,9 @@ First in your app/build.gradle add the dependencies, to use Hilt
     
 ```
 
-In the next code we see the use of @HiltAndroidApp to initialize the use of dependency injecting, it is necessary to implement Configuration.Provider and override getWorkManagerConfiguration and pass the previously injected HiltWorkerFactory, to return a new configuration. 
+In the next code we see the use of @HiltAndroidApp to initialize the use of dependency injecting, it is necessary to implement Configuration.Provider and override getWorkManagerConfiguration and pass the previously injected HiltWorkerFactory, to return a new configuration.
+
+### Kotlin
 
 ```
 @HiltAndroidApp
