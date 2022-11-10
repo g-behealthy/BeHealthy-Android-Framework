@@ -312,13 +312,20 @@ class YourClassApplication : Application(), Configuration.Provider {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
+    
+    @Inject
+    lateinit var client: BeHealthyClient
+
+    override fun onCreate() {
+        super.onCreate()
+        client.initBeHealthy()
+    }
 
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
             .setWorkerFactory(workerFactory)
             .build()
     }
-
 }
 ```
 
