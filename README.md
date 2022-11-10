@@ -46,11 +46,12 @@ Note: BeHealthy makes use of external libraries so it is necessary to use the tr
 
 To embed full content (login + progress + achievements) of BeHealthy framework
 
+
 ### Kotlin
 
 ```
-    @Inject
-    lateinit var client: BeHealthyClient
+@Inject
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -58,8 +59,13 @@ To embed full content (login + progress + achievements) of BeHealthy framework
 fun someMethod() {
   // additional logic
   
-  client.startCompleteApp()
+  client.startBeHealthy()
 }
+```
+
+### Java
+
+```
 ```
 
 
@@ -70,8 +76,8 @@ To embed core content (progress + achievements) of BeHealthy framework
 ### Kotlin
 
 ```
-    @Inject
-    lateinit var client: BeHealthyClient
+@Inject
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -79,8 +85,13 @@ To embed core content (progress + achievements) of BeHealthy framework
 fun someMethod() {
   // additional logic
   
-  client.startProgressApp(token = AnyToken)
+  client.startProgress(token = AnyToken)
 }
+```
+
+### Java
+
+```
 ```
 
 
@@ -91,8 +102,8 @@ Community value is granted to you by BeHealthy team:
 ### Kotlin
 
 ```
-    @Inject
-    lateinit var client: BeHealthyClient
+@Inject
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -102,6 +113,11 @@ fun someMethod() {
   
   client.setCommunityId("1")
 }
+```
+
+### Java
+
+```
 ```
 
 
@@ -114,8 +130,8 @@ Example:
 ### Kotlin
  
 ```
-    @Inject
-    lateinit var client: BeHealthyClient
+@Inject
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -123,8 +139,13 @@ Example:
 fun someMethod() {
   // additional logic
   
-  client.startSDKEnrollmentApp(token = AnyToken) <- Here your token
+  client.startEnrollment(token = AnyToken) <- Here your token
 }
+```
+
+### Java
+
+```
 ```
 
 
@@ -137,8 +158,8 @@ NOTE: only send the hexadecimal color code without # symbol.
 ### Kotlin
 
 ```
-    @Inject
-    lateinit var client: BeHealthyClient
+@Inject
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -152,8 +173,13 @@ fun someMethod() {
                         tertiaryColor = '47B5FF'
                     )
   
-  client.saveSupportColors(colors = yourColors)
+  client.setSupportColors(colors = yourColors)
 }
+```
+
+### Java
+
+```
 ```
 
 Additionally, it is necessary to create a new file in res/values with the name colors_override.xml and add the next values 
@@ -183,7 +209,7 @@ To enroll a new user to BeHealthy
 
 ```
 @Inject
-    lateinit var client: BeHealthyClient
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -191,9 +217,15 @@ To enroll a new user to BeHealthy
 fun someMethod() {
   // additional logic
   
-  client.startSDKEnrollmentApp(token = AnyToken)
+  client.startEnrollment(token = AnyToken)
 }
 ```
+
+### Java
+
+```
+```
+
 
 ## Enable / Disable Analytics
 
@@ -203,7 +235,7 @@ Enable analytics:
 
 ```
 @Inject
-    lateinit var client: BeHealthyClient
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -215,13 +247,18 @@ fun someMethod() {
 }
 ```
 
+### Java
+
+```
+```
+
 Disable analytics:
 
 ### Kotlin
 
 ```
 @Inject
-    lateinit var client: BeHealthyClient
+lateinit var client: BeHealthyClient
 .
 .
 .
@@ -233,6 +270,11 @@ fun someMethod() {
 }
 ```
 
+### Java
+
+```
+```
+
 
 ## Dependency injection
 
@@ -242,6 +284,8 @@ In the following points you can see the code, which is mandatory for our library
 
 First in your app/build.gradle add the dependencies, to use Hilt
 
+### Kotlin
+
 ```
     // The following dependencies are mandatory
     // Hilt
@@ -250,8 +294,12 @@ First in your app/build.gradle add the dependencies, to use Hilt
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     // Hilt - WorkManager
     implementation 'androidx.hilt:hilt-work:1.0.0'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0'
-    
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'    
+```
+
+### Java
+
+```
 ```
 
 In the next code we see the use of @HiltAndroidApp to initialize the use of dependency injecting, it is necessary to implement Configuration.Provider and override getWorkManagerConfiguration and pass the previously injected HiltWorkerFactory, to return a new configuration.
@@ -272,6 +320,11 @@ class YourClassApplication : Application(), Configuration.Provider {
     }
 
 }
+```
+
+### Java
+
+```
 ```
 
 Now in your manifest you must add the following code, before closing the </application> tag
