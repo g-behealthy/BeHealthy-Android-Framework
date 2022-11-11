@@ -36,244 +36,10 @@ In the settings.gradle file of your project add maven with the url of Jitpack.io
 Now with the Jitpack repository, you can deploy BeHealthy as a new dependency, in your module (app-level) Gradle file (usually app/build.gradle)
 
 ```
-implementation("com.github.g-behealthy:BeHealthy-Android-Framework:1.2.2@aar"){transitive true}
+implementation("com.github.g-behealthy:BeHealthy-Android-Framework:1.2.3@aar"){transitive true}
 ```
 
 Note: BeHealthy makes use of external libraries so it is necessary to use the transitive true flag to obtain them.
-
-
-## Full access
-
-To embed full content (login + progress + achievements) of BeHealthy framework
-
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.startBeHealthy()
-}
-```
-
-### Java
-
-```
-```
-
-
-## Core access
-
-To embed core content (progress + achievements) of BeHealthy framework
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.startProgress(token = AnyToken)
-}
-```
-
-### Java
-
-```
-```
-
-
-## Community configuration
-
-Community value is granted to you by BeHealthy team:
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.setCommunityId("1")
-}
-```
-
-### Java
-
-```
-```
-
-
-## Set token
-
-You can provide a token for backend integration, with the parameter "token" in the methods [startProgressApp](#core-access) and [startSDKEnrollmentApp](#sdk-enrollment).
- 
-Example: 
- 
-### Kotlin
- 
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.startEnrollment(token = AnyToken) <- Here your token
-}
-```
-
-### Java
-
-```
-```
-
-
-## Branding
-
-There are 3 supported colors for BeHealthy framework: primary, secondary and tertiary, save colors with the next method.
-
-NOTE: only send the hexadecimal color code without # symbol.
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  val yourColors = SupportColors(
-                        primaryColor = '06283D',
-                        secondaryColor = '1363DF',
-                        tertiaryColor = '47B5FF'
-                    )
-  
-  client.setSupportColors(colors = yourColors)
-}
-```
-
-### Java
-
-```
-```
-
-Additionally, it is necessary to create a new file in res/values with the name colors_override.xml and add the next values 
-
-```
-<color name="be_healthy_primary_color">#your primary color</color>
-<color name="be_healthy_primary_dark">#your primary color</color>
-<color name="be_healthy_secondary_color">#your secondary color</color>
-<color name="be_healthy_icon_color">#your secondary color</color>
-<color name="be_healthy_secondary_icon_color">#your secondary color</color>
-<color name="be_healthy_tertiary_color">#your tertiary color</color>
-```
-![6c33b01f-86f9-416f-8a44-1943bc7c1d3f](https://user-images.githubusercontent.com/106997285/180485692-11b0a3cf-7577-4680-94e8-975bc867f675.jpeg)
-
-
-
-## Push notifications
-
-In order to support push notifications a Firebase project is required. Select the project, go to Project Settings > Cloud Messaging, copy server key and send it to our team.
-
-
-## SDK enrollment
-
-To enroll a new user to BeHealthy
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.startEnrollment(token = AnyToken)
-}
-```
-
-### Java
-
-```
-```
-
-
-## Enable / Disable Analytics
-
-Enable analytics:
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.supportFirebaseAnalytics(true)
-}
-```
-
-### Java
-
-```
-```
-
-Disable analytics:
-
-### Kotlin
-
-```
-@Inject
-lateinit var client: BeHealthyClient
-.
-.
-.
-
-fun someMethod() {
-  // additional logic
-  
-  client.supportFirebaseAnalytics(false)
-}
-```
-
-### Java
-
-```
-```
 
 
 ## Dependency injection
@@ -282,24 +48,42 @@ For the right functioning of the application, it is necessary to add code that e
 
 In the following points you can see the code, which is mandatory for our library.
 
-First in your app/build.gradle add the dependencies, to use Hilt
-
-### Kotlin
+First in your project/build.gradle add the dependencies, to use Kotlin, Hilt and Crashlytics
 
 ```
-    // The following dependencies are mandatory
-    // Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    // Hilt - WorkManager
-    implementation 'androidx.hilt:hilt-work:1.0.0'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0'    
+buildscript {
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:$crashlytics_version'
+    }
+}
+plugins {
+    id 'com.android.application' version '7.2.0' apply false
+    id 'com.android.library' version '7.2.0' apply false
+    id("com.google.dagger.hilt.android") version "$hilt_version apply false
+}
 ```
 
-### Java
+Then, in your app/build.gradle add the plugins and dependencies
 
 ```
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.firebase.crashlytics'
+}
+
+dependencies {
+.
+.
+.
+
+implementation "com.google.dagger:hilt-android:$hilt_version"
+kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+kapt "com.google.dagger:hilt-compiler:$hilt_version"
+}
 ```
 
 In the next code we see the use of @HiltAndroidApp to initialize the use of dependency injecting, it is necessary to implement Configuration.Provider and override getWorkManagerConfiguration and pass the previously injected HiltWorkerFactory, to return a new configuration.
@@ -332,6 +116,30 @@ class YourClassApplication : Application(), Configuration.Provider {
 ### Java
 
 ```
+@HiltAndroidApp
+public class YourClassApplication extends Application implements Configuration.Provider {
+
+    @Inject
+    HiltWorkerFactory workerFactory;
+
+    @Inject
+    BeHealthyClient client;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        client.initBeHealthy();
+    }
+
+    @NonNull
+    @Override
+    public Configuration getWorkManagerConfiguration() {
+        return new Configuration.Builder()
+                .setWorkerFactory(workerFactory)
+                .build();
+    }
+}
 ```
 
 Now in your manifest you must add the following code, before closing the </application> tag
@@ -345,6 +153,305 @@ Now in your manifest you must add the following code, before closing the </appli
 ```   
 
 **Important:** Enabling the use of Hilt in your application does not limit dependency injection, you can use the injection tool of your choice.
+
+
+## Full access
+
+To embed full content (login + progress + achievements) of BeHealthy framework
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.startBeHealthy()
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.startBeHealthy();
+}
+```
+
+
+## Core access
+
+To embed core content (progress + achievements) of BeHealthy framework
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.startProgress(token = AnyToken)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.startProgress(AnyToken);
+}
+```
+
+
+## SDK enrollment
+
+To enroll a new user to BeHealthy
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.startEnrollment(token = AnyToken)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.startEnrollment(AnyToken);
+}
+```
+
+
+## Community configuration
+
+Community value is granted to you by BeHealthy team:
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setCommunityId("1")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setCommunityId("1");
+}
+```
+
+
+## Set token
+
+You can provide a token for backend integration, with the parameter "token" in the methods [startProgressApp](#core-access) and [startSDKEnrollmentApp](#sdk-enrollment).
+ 
+Example: 
+ 
+### Kotlin
+ 
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.startEnrollment(token = AnyToken) <- Here your token
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.startEnrollment(AnyToken);
+}
+```
+
+## Branding
+
+There are 3 supported colors for BeHealthy framework: primary, secondary and tertiary, save colors with the next method.
+
+NOTE: only send the hexadecimal color code without # symbol.
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  val yourColors = SupportColors(
+                        primaryColor = '06283D',
+                        secondaryColor = '1363DF',
+                        tertiaryColor = '47B5FF'
+                    )
+  
+  client.setSupportColors(colors = yourColors)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  SupportColors yourColors = new SupportColors(
+                        "06283D",
+                        "1363DF",
+                        "47B5FF");
+  client.setSupportColors(yourColors);
+}
+```
+
+Additionally, it is necessary to create a new file in res/values with the name colors_override.xml and add the next values 
+
+```
+<color name="be_healthy_primary_color">#your primary color</color>
+<color name="be_healthy_primary_dark">#your primary color</color>
+<color name="be_healthy_secondary_color">#your secondary color</color>
+<color name="be_healthy_icon_color">#your secondary color</color>
+<color name="be_healthy_secondary_icon_color">#your secondary color</color>
+<color name="be_healthy_tertiary_color">#your tertiary color</color>
+```
+![6c33b01f-86f9-416f-8a44-1943bc7c1d3f](https://user-images.githubusercontent.com/106997285/180485692-11b0a3cf-7577-4680-94e8-975bc867f675.jpeg)
+
+
+## Push notifications
+
+In order to support push notifications a Firebase project is required. Select the project, go to Project Settings > Cloud Messaging, copy server key and send it to our team.
+
+
+## Enable / Disable Analytics
+
+Enable analytics:
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(true)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(true);
+}
+```
+
+Disable analytics:
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(false)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.supportFirebaseAnalytics(false);
+}
+```
 
 
 ## Firebase configuration
