@@ -625,4 +625,14 @@ Now replace client-id by your project information
 ```
 
 
+### Multilanguage support
+
+Framework supports these languages:
+
+* English
+* Spanish
+* Portuguese
+* Arabic
+
+
 ## Troubleshooting
