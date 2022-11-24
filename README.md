@@ -154,6 +154,36 @@ Now in your manifest you must add the following code, before closing the </appli
 
 **Important:** Enabling the use of Hilt in your application does not limit dependency injection, you can use the injection tool of your choice.
 
+## Set Environment
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setEnvironment(BeHealthyEnvironment.STAGE)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setEnvironment(BeHealthyEnvironment.STAGE);
+}
+```
 
 ## Full access
 
