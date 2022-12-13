@@ -485,6 +485,70 @@ void someMethod() {
 ```
 
 
+## Set Program Name
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setProgramName("BeHealthy")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setProgramName("BeHealthy");
+}
+```
+
+
+## Set Buy a Watch CTA
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setUrlBuyWatch("https://www.behealthy.com")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setUrlBuyWatch("https://www.behealthy.com");
+}
+```
+
+
 ## Firebase configuration
 
 [Create a Firebase project](https://firebase.google.com/docs/android/setup#create-firebase-project)
