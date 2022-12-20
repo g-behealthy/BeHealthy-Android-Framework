@@ -288,6 +288,50 @@ void someMethod() {
 }
 ```
 
+You can verify if a user is enrolled with their token:
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.isUserEnrolled("Token")
+    .whenCompleteAsync { result, throwable ->
+        if result {
+            // present core flow
+        } else {
+            // present enroll flow
+        }
+    }
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.isUserEnrolled("TOKEN").whenComplete((aBoolean, throwable) -> {
+    if aBoolean {
+        // present core flow
+    } else {
+        // present enroll flow
+    }
+  });
+}
+```
+
 
 ## Community configuration
 
@@ -721,7 +765,7 @@ Now replace client-id by your project information
 ```
 
 
-### Multilanguage support
+## Multilanguage support
 
 Framework supports these languages:
 
@@ -729,6 +773,37 @@ Framework supports these languages:
 * Spanish
 * Portuguese
 * Arabic
+
+## Set Language
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setLanguage(Locale("en"))
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setLanguage(new Locale("en"));
+}
+```
 
 
 ## Troubleshooting
