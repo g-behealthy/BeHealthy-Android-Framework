@@ -807,3 +807,6 @@ void someMethod() {
 
 
 ## Troubleshooting
+
+* Recommended Dagger Hilt version: 2.42
+* "You need to use a Theme.AppCompat theme (or descendant) with this activity": update Dagger Hilt dependencies to version 2.42
