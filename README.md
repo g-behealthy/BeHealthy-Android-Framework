@@ -9,11 +9,13 @@
 | 1.3.1 | Nov 25th, 2022|
 | 1.3.4 | Dec 13rd, 2022|
 | 1.3.5 | Dec 21st, 2022|
+| 1.4.0 | Mar 11th, 2023|
+| 1.4.1 | Mar 14th, 2024|
 
 
 ## Requirements
 
-* Minimum OS version: 6.0
+* Minimum OS version: 9.0
 * Designed for cellphone interface
 * Supports only portrait orientation
 * Supports only light mode
@@ -27,7 +29,7 @@ In the settings.gradle file of your project add maven with the url of Jitpack.io
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+        jcenter()
         
         // Add this repository
         maven {
@@ -51,7 +53,7 @@ For the right functioning of the application, it is necessary to add code that e
 
 In the following points you can see the code, which is mandatory for our library.
 
-First in your project/build.gradle add the dependencies, to use Kotlin, Hilt and Crashlytics
+First in your project/build.gradle add the dependencies, to use Kotlin, Hilt and Crashlytics (current recommended Hilt version 2.42)
 
 ```
 buildscript {
@@ -61,8 +63,7 @@ buildscript {
     }
 }
 plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.21' apply false
     id("com.google.dagger.hilt.android") version "$hilt_version apply false
 }
 ```
@@ -90,6 +91,14 @@ kapt "com.google.dagger:hilt-compiler:$hilt_version"
 ```
 
 In the next code we see the use of @HiltAndroidApp to initialize the use of dependency injecting, it is necessary to implement Configuration.Provider and override getWorkManagerConfiguration and pass the previously injected HiltWorkerFactory, to return a new configuration.
+
+**IMPORTANT:** If your project has this flag **minifyEnabled** set true you have to set this line in your proguard rules file
+
+```
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.globant.behealthylibrary.data.remote.model.** { <fields>; }
+```
+    
 
 ### Kotlin
 
@@ -154,6 +163,12 @@ Now in your manifest you must add the following code, before closing the </appli
             android:exported="false"
             tools:node="remove" />
 ```   
+
+and set this value
+
+```
+android:allowBackup="false"
+```
 
 **Important:** Enabling the use of Hilt in your application does not limit dependency injection, you can use the injection tool of your choice.
 
