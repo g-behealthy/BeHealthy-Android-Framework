@@ -418,6 +418,37 @@ void someMethod() {
 }
 ```
 
+## Refresh token
+ 
+### Kotlin
+ 
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setRefreshToken("token")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setRefreshToken("token");
+}
+```
+
 ## Branding
 
 There are 3 supported colors for BeHealthy framework: primary, secondary and tertiary, save colors with the next method.
@@ -546,6 +577,38 @@ void someMethod() {
 ```
 
 
+## Set Enrollment Email
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setEnrollmentEmail("email")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setEnrollmentEmail("email");
+}
+```
+
+
 ## Set Program Name
 
 ### Kotlin
@@ -610,6 +673,38 @@ void someMethod() {
 ```
 
 
+## Set Member ID
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.setMemberId("member id")
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.setMemberId("member id");
+}
+```
+
+
 ## Firebase configuration
 
 [Create a Firebase project](https://firebase.google.com/docs/android/setup#create-firebase-project)
@@ -641,144 +736,37 @@ If you need more information, please check the official documentation.
 https://firebase.google.com/docs/android/setup#register-app
 
 
-## Google Fit configuration
+## Health Connect configuration
 
-**Create a Project**
+To register the application to support Health Connect fill this form https://docs.google.com/forms/d/1LFjbq1MOCZySpP5eIVkoyzXTanpcGTYQH26lKcrQUJo/viewform?edit_requested=true&hl=es-419&pli=1
 
-Firstable, create a new project from Google Cloud Platform, to do this, log in https://console.cloud.google.com/, once logged in, in the top bar the project should appear, otherwise you should see the option create new project.
+Information to answer:
 
-<img width="753" alt="e8761297-e1fd-4d7b-8cd3-7aec142d4733" src="https://user-images.githubusercontent.com/106997285/180486763-fe144cea-eabf-4212-99ff-9c47a194726b.png">
+### Please select all data types your app is requesting to READ:
 
-**Enable the Google Fit API**
-
-Once the project is created, it is necessary to activate the use of the "Fitness API" service, to do this in the search engine look for "Fitness", it will appear as the first option
-
-![0fa6ecf1-8119-45d3-bd03-3e72dc2a5137](https://user-images.githubusercontent.com/106997285/180486789-8be30697-1c58-4522-abce-5fa14d6958e3.png)
-
-
-When you select it a new screen will appear with an Enable Fitness API button, when it's activated you should see a screen like this: 
-
-![4be4cbbc-03e3-42a0-b639-baecad6b739c](https://user-images.githubusercontent.com/106997285/180486808-4cd13a8c-a0f2-476a-881a-81c1f5021c40.png)
+- WeightRecord
+- StepsRecord
+- HeightRecord
+- ExerciseSessionRecord
 
 
-**Authorization scopes**
+### Please provide a rationale for selected data types. If you selected 'N/A' please add N/A as your response.
 
-**When to go through verification**
+**HeightRecord:** Fetch the height of the user and display that data as part of the create account flow, where the user must verify this information as well as additional information from the program. This value is used to calculate the target values for steps and heart points.
 
-You need to go through verification before you launch a user-facing app. You can continue to build and test your app while waiting to complete verification. When your app is successfully verified, the unverified app screen is removed from your client.
-You don't need to go through verification for the following kinds of apps:
-- Apps in development: if your app is experimental or a test build, you don't need to go through verification unless you decide to launch it to the public.
-- OAuth-based plugins: if you're setting up an OAuth-based plugin for a popular platform, such as SMTP for WordPress, you don't need to go through the verification process.
-- Internal apps: if your app is an internal web app for users in the same G Suite domain and the app is associated with a Cloud Organization that all of your users belong to, you don't need to go through verification. For more information, see public and internal applications.
+**WeightRecord:** Fetch the weight of the user and display that data as part of the create account flow, where the user must verify this information as well as additional information from the program. This value is used to calculate the target values for steps and heart points.
 
-**All apps**
+**StepsRecord:** Steps are used to display inside the app to the user the number of daily steps which is one of the target values we are currently handling and also to calculate the heart points
 
-Steps to prepare for verification
+**ExerciseSessionRecord:** Exercise session is used to calculate the hearts points inside the app, the application use heart points as one of the targets
 
-All apps that request access to data using Google APIs must complete brand verification. Make sure all branding information on the OAuth consent screen, such as the project name shown to users, support email, homepage URL, privacy policy URL, and so on, accurately represents the app's identity.
+### Please select all data types your app is requesting to WRITE
 
-Make sure that your homepage meets the following requirements:
-- Your homepage must be publicly accessible, and not behind a sign-in page.
-- Your homepage must make clear its relevance to the app you’re verifying.
-- Your homepage must be accurate, inclusive, and easily accessible to all users.
-- Links to the Google Play Store or Facebook are not considered valid application homepages.
+N/A
 
-Make sure that your app's Privacy Policy meets the following requirements:
+### Please provide a rationale for selected data types. If you selected 'N/A' please add N/A as your response.
 
-- The Privacy Policy must be visible to users, hosted within the domain of your website, and linked from the OAuth consent screen on the Google API Console.
-- The Privacy Policy must disclose the manner in which your application accesses, uses, stores, or shares Google user data. Your use of Google user data must be limited to the practices disclosed in your published Privacy Policy.
-
-**Apps requesting sensitive scopes**
-
-Steps for apps requesting sensitive scopes
-
-1. Complete the preparation steps for All apps.
-
-2. Prepare a detailed justification for each requested scope as well as an explanation for why a narrower scope wouldn't be sufficient. For example: My app will use https://www.googleapis.com/auth/calendar to show a user's Google calendar data on the scheduling screen of my app, so that users can manage their schedules through my app and sync the changes with their Google calendar.
-
-3. Your requested scope must be as granular as possible (if your requested scope goes beyond the usage needed, then we will either reject your request or suggest a more applicable scope).
-- Prepare a video that fully demonstrates the OAuth grant process by users and shows, in detail, the usage of sensitive scopes in the app.
-- Show that the OAuth Consent Screen correctly displays the App Name.
-- Show the OAuth grant process that users will experience, in English (the consent flow, and, if you use Google Sign-in, the sign-in flow).
-- Show that the URL bar of the OAuth Consent Screen correctly includes your app’s Client ID.
-Note: This is not required for chrome extensions, native Android, and iOS apps.
-Show how the data will be used by demonstrating the functionality enabled by each sensitive and restricted scope you request.
-
-4. Upload the video to YouTube. You’ll need to provide a link to the video as part of the verification process. Let us know if your app requires registration or features a local login. If any of your OAuth clients are not ready for production, we suggest you delete or remove them from the project requesting verification. You can do this in the Google Cloud Console.
-
-**How is this info presented to users?**
-
-This is the consent screen that users see
-
-<img width="894" alt="Screen Shot 2022-09-22 at 1 57 12 PM" src="https://user-images.githubusercontent.com/105304517/191855272-389eac49-5efa-4327-b0de-afd3083ccd1a.png">
-
-**How to send a project to verification?**
-
-Go to Google Cloud Console, select your project and select APIs & Services option
-
-<img width="1792" alt="Screen Shot 2022-09-22 at 3 11 33 PM" src="https://user-images.githubusercontent.com/105304517/191855726-a7c69cb3-aff2-4877-a25f-bb0326754b95.png">
-
-If you have an OAuth 2.0 client ID associated with your project you can skip this section, otherwise, select Credentials section and create a new credential, select OAuth client ID option
-
-<img width="1792" alt="Screen Shot 2022-09-22 at 3 19 05 PM" src="https://user-images.githubusercontent.com/105304517/191858066-d5843e59-0497-40ac-8364-a17e65089706.png">
-
-For Application Type select Android, and fill the other fields of the form with the following information:
-
-<img width="1792" alt="Screen Shot 2022-09-22 at 3 20 37 PM" src="https://user-images.githubusercontent.com/105304517/191855804-bca2415a-9d2e-4431-9185-0803c65ce214.png">
-
-**Name:** the name you want for client ID, it’ll be better if it’s something related with production or release
-**Package Name:** package name of your Android application
-**SHA-1:** this information can be obtained from your Google Play Console, select the app and go to Setup > App Integrity > App Signing
-
-After you create your OAuth Client ID, go to the OAuth consent screen section, click EDIT APP and follow the instructions in order to send the project to verification.
-
-<img width="1792" alt="Screen Shot 2022-09-22 at 3 31 02 PM" src="https://user-images.githubusercontent.com/105304517/191855924-ade694ec-46b3-42df-82ae-e150ad0ab6a2.png">
-
-Scopes to send to verification
-
-<img width="519" alt="Screen Shot 2022-09-22 at 2 52 47 PM" src="https://user-images.githubusercontent.com/105304517/191856570-ccd66957-abe6-400f-bcf9-f6c2e3dc003d.png">
-
-Verification process can take up to 4-6 weeks.
-
-
-## Fitbit configuration
-
-**Register for a Fitbit Dev Account**
-
-1. Go to https://dev.fitbit.com/apps and create an account. You'll need to use a valid email address and confirm it before continuing.
-
-2. Create a Fitbit App
-  a. Open https://dev.fitbit.com/apps/new
-  b. Fill out the fields about your app. The first five fields (app name, description, website, organization, and organization website) will be specific to your organization and are going to be visible for your users when they grant permissions inside the app.
-
-Important:
-  For OAuth 2.0 Application Type select Client
-  Redirect URL: tells Fitbit where to take the user once they have authenticated. It is **important** that you use the following redirect 
-  
-```
-    com.globant.behealthy://redirect
-```
-
-![249bc9ee-1a1a-4db3-9a62-64b5cb929818](https://user-images.githubusercontent.com/106997285/180487358-a2aec5c4-eab0-4997-80a4-f5b78cde2702.png)
-
-
-Agree and click Register. You should get a screen with your `Client Id`. Copy this client id you are going to need it later.
-
-**Configuration in your project**
-
-Now you need to create a new file called **fitbit_auth_config.json** and add it to your project raw folder, you can find it in app/res/raw, if it doesn't exist you have to create it
-
-Now replace client-id by your project information 
-
-```
-{
-  "client-id": "XXXXX",
-  "authorization-uri": "https://www.fitbit.com/oauth2/authorize",
-  "token-uri": "https://api.fitbit.com/oauth2/token",
-  "redirect-uri": "com.globant.behealthy://redirect",
-  "authorization-scope": "activity heartrate profile weight"
-}
-```
+N/A
 
 
 ## Multilanguage support
@@ -804,7 +792,7 @@ lateinit var client: BeHealthyClient
 fun someMethod() {
   // additional logic
   
-  client.setLanguage(Locale("en"))
+  client.setLanguage(BeHealthyLanguage.ENGLISH)
 }
 ```
 
@@ -817,7 +805,7 @@ BeHealthyClient client;
 void someMethod() {
   // additional logic
   
-  client.setLanguage(new Locale("en"));
+  client.setLanguage(BeHealthyLanguage.ENGLISH);
 }
 ```
 
