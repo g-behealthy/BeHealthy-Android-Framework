@@ -511,7 +511,7 @@ Additionally, it is necessary to create a new file in res/values with the name c
 
 In order to support push notifications a Firebase project is required. Select the project, go to Project Settings > Cloud Messaging, copy server key and send it to our team.
 
-To the class which extends from **FirebaseMessagingService** add **AndroidEntryPoint** attribute and override **onNewToken** method
+To the class which extends from **FirebaseMessagingService** add **AndroidEntryPoint** attribute and override **onMessageReceived** and **onNewToken** methods
 
 ### Kotlin
 
