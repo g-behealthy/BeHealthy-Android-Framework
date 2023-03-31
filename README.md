@@ -511,6 +511,57 @@ Additionally, it is necessary to create a new file in res/values with the name c
 
 In order to support push notifications a Firebase project is required. Select the project, go to Project Settings > Cloud Messaging, copy server key and send it to our team.
 
+To the class which extends from **FirebaseMessagingService** add **AndroidEntryPoint** attribute and override **onNewToken** method
+
+### Kotlin
+
+```
+@AndroidEntryPoint
+class MyFirebaseListenerService: FirebaseMessagingService() {
+    
+    @Inject
+    lateinit var client: BeHealthyClient
+    
+    ...
+    
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        super.onMessageReceived(message)
+        cliente.onMessageReceivedClient(message)
+    }
+    
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        client.onNewTokenClient(token)
+    }
+}
+```
+
+### Java
+
+```
+@AndroidEntryPoint
+class MyFirebaseListenerService extends FirebaseMessagingService {
+    
+    @Inject
+    BeHealthyClient client;
+    
+    ...
+    
+    @Override
+    void onMessageReceived(@NonNull RemoteMessage message) {
+        ...
+        super.onMessageReceived(message);
+        cliente.onMessageReceivedClient(message);
+    }
+    
+    @Override
+    void onNewToken(@NonNull String token) {
+        super.onNewToken(token);
+        client.onNewTokenClient(token);
+    }
+}
+```
+
 
 ## Enable / Disable Analytics
 
