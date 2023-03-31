@@ -320,7 +320,9 @@ fun someMethod() {
   
   client.isUserEnrolled("Token")
     .whenCompleteAsync { result, throwable ->
-        if result {
+        //result.message prints error message
+        
+        if result.isEnrollment {
             // present core flow
         } else {
             // present enroll flow
@@ -338,8 +340,10 @@ BeHealthyClient client;
 void someMethod() {
   // additional logic
   
-  client.isUserEnrolled("TOKEN").whenComplete((aBoolean, throwable) -> {
-    if aBoolean {
+  client.isUserEnrolled("TOKEN").whenComplete((result, throwable) -> {
+    //result.message prints error message
+  
+    if result.isEnrollment {
         // present core flow
     } else {
         // present enroll flow
@@ -624,6 +628,52 @@ void someMethod() {
   // additional logic
   
   client.supportFirebaseAnalytics(false);
+}
+```
+
+
+## Account deactivation
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.deactivateAccount("token")
+  .whenCompleteAsync { result, throwable ->
+        if result {
+            // account deactivation success
+        } else {
+            // account deactivation failed
+        }
+    }
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.deactivateAccount("token")
+  .whenComplete((aBoolean, throwable) -> {
+    if aBoolean {
+        // account deactivation success
+    } else {
+        // account deactivation failed
+    }
+  });
 }
 ```
 
