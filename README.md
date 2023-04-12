@@ -774,6 +774,38 @@ void someMethod() {
 ```
 
 
+## Request watch
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.shouldRequestWatch(true)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.shouldRequestWatch(true);
+}
+```
+
+
 ## Set Member ID
 
 ### Kotlin
