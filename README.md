@@ -943,6 +943,58 @@ void someMethod() {
 ```
 
 
+## Listeners
+
+Listeners are events which occur inside BeHealthy module and you can suscribe, current events supported for Android version are:
+
+- HEART_POINTS_TARGET: Triggered when heart points target is met
+- STEPS_TARGET: Triggered when steps target is met
+- STAR_EARNED: Triggered when daily star is earned
+- SIXTY_PERCENT_STEPS_TARGET: Triggered when step target progress reaches 60%
+- NO_TARGET: Triggered when at 5pm local time none of the targets are met
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  
+  client.onEventChanged { event ->
+        when (event) {
+            BeHealthyEvents.HEART_POINTS_TARGET -> {
+                // do something
+            }
+        }
+    }
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.onEventChanged(event -> {
+        switch (event) {
+            case HEART_POINTS_TARGET:
+                // do something
+                break;
+        }
+    });
+}
+```
+
+
 ## Troubleshooting
 
 * Recommended Dagger Hilt version: 2.42
