@@ -204,9 +204,9 @@ void someMethod() {
 }
 ```
 
-## Full access
+## Full access (Email activation)
 
-To embed full content (login + progress + achievements) of BeHealthy framework
+To embed full content (login + progress + achievements) of BeHealthy framework for email activation
 
 ### Kotlin
 
@@ -219,7 +219,7 @@ lateinit var client: BeHealthyClient
 
 fun someMethod() {
   // additional logic
-  
+  client.setActivationFlow(BeHealthyActivationFlow.EMAIL)
   client.startBeHealthy()
 }
 ```
@@ -232,7 +232,41 @@ BeHealthyClient client;
 
 void someMethod() {
   // additional logic
-  
+  client.setActivationFlow(BeHealthyActivationFlow.EMAIL);
+  client.startBeHealthy();
+}
+```
+
+
+## Full access (SMS activation)
+
+To embed full content (login + progress + achievements) of BeHealthy framework for SMS activation
+
+### Kotlin
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+
+fun someMethod() {
+  // additional logic
+  client.setActivationFlow(BeHealthyActivationFlow.SMS)
+  client.startBeHealthy()
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  client.setActivationFlow(BeHealthyActivationFlow.SMS);
   client.startBeHealthy();
 }
 ```
