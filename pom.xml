@@ -3,7 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.globant.behealthylibrary</groupId>
     <artifactId>behealthylibrary</artifactId>
-    <version>2.1</version>
+    <version>2.1.2</version>
+    <packaging>aar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.jakewharton.threetenabp</groupId>
@@ -243,7 +244,7 @@
         <dependency>
             <groupId>androidx.health.connect</groupId>
             <artifactId>connect-client</artifactId>
-            <version>1.0.0-alpha11</version>
+            <version>1.1.0-alpha07</version>
         </dependency>
         <dependency>
             <groupId>androidx.databinding</groupId>
