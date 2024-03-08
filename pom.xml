@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.globant.behealthylibrary</groupId>
     <artifactId>behealthylibrary</artifactId>
-    <version>2.1.5</version>
+    <version>2.1.6</version>
     <dependencies>
         <dependency>
             <groupId>com.jakewharton.threetenabp</groupId>
@@ -209,11 +209,6 @@
             <groupId>com.google.firebase</groupId>
             <artifactId>firebase-analytics</artifactId>
             <version>21.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-config-ktx</artifactId>
-            <version>21.1.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.firebase</groupId>
