@@ -1033,17 +1033,22 @@ void someMethod() {
 ## Send progress
 
 This method is used to send the latest information on the user's HC without having to open the screen completely.
+
 Important:
+
 You need to register health connect first because you will need to request permissions for health connect, you need to add this method in the oncreate of either your activity or fragment where the progress will be sent.
+
 (If your class extends ComponentActivity you must use the parameter composeContext, otherwise if you use an activity that extends AppCompactActivity you must use the parameter context.)
 The updateUserProgress method responds with a listener called BeHealthyUpdateProgressListener, which has different statuses that will be enumerated next
-ERROR_GET_USER = Error while trying to retrieve user information. Please verify that the user is enrolled in the program or that the token is valid.
-ERROR_UPDATE_PROGRESS = There was an error updating the user's progress.
-HC_UNAVAILABLE = Health Connect is not available. Please try again later.
-HC_NEED_UPDATE_OR_INSTALL = Error with HC, It's necessary to update or install Health Connect.
-HC_PERMISSION = Error retrieving HC information. Please verify that the user has HC permissions. Permissions will be requested.
-HC_PERMISSION_CANCEL_USER = The user did not grant permissions on multiple occasions. Manual permission granting is required.
-SUCCESS = The user information was sent successfully.
+
+- ERROR_GET_USER = Error while trying to retrieve user information. Please verify that the user is enrolled in the program or that the token is valid.
+- ERROR_UPDATE_PROGRESS = There was an error updating the user's progress.
+- HC_UNAVAILABLE = Health Connect is not available. Please try again later.
+- HC_NEED_UPDATE_OR_INSTALL = Error with HC, It's necessary to update or install Health Connect.
+- HC_PERMISSION = Error retrieving HC information. Please verify that the user has HC permissions. Permissions will be requested.
+- HC_PERMISSION_CANCEL_USER = The user did not grant permissions on multiple occasions. Manual permission granting is required.
+- SUCCESS = The user information was sent successfully.
+
 If you want BH to control the actions when the user does not have permissions or does not have Health connect installed, you must set the variable performActions to true, if you want to control these actions yourself to customize the permissions screens, just set false in this variable.
 
 ### Kotlin
