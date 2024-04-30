@@ -1096,6 +1096,38 @@ public void someMethod() {
 ```
 
 
+## Show / hide back button
+
+Shows or hides the back button on the main screen of the library
+
+### Kotlin
+
+```
+val client = IBeHealthyClient.getInstance()
+.
+.
+.
+fun someMethod() {
+  // additional logic
+  client.showBackButton(showBack = true or false)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+.
+.
+.
+void someMethod() {
+  // additional logic
+  client.showBackButton(true or false);
+}
+```
+
+
 ## Troubleshooting
 
 * Recommended Dagger Hilt version: 2.42
