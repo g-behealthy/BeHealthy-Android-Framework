@@ -1128,6 +1128,38 @@ void someMethod() {
 ```
 
 
+## Show / hide preferences icon
+
+Shows or hides the preferences icon
+
+### Kotlin
+
+```
+val client = IBeHealthyClient.getInstance()
+.
+.
+.
+fun someMethod() {
+  // additional logic
+  client.showPreferencesIcon(showPreferences = true or false)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+.
+.
+.
+void someMethod() {
+  // additional logic
+  client.showPreferencesIcon(true or false);
+}
+```
+
+
 ## Troubleshooting
 
 * Recommended Dagger Hilt version: 2.42
