@@ -1160,6 +1160,38 @@ void someMethod() {
 ```
 
 
+## Show / hide delete account
+
+Shows or hides delete account section
+
+### Kotlin
+
+```
+val client = IBeHealthyClient.getInstance()
+.
+.
+.
+fun someMethod() {
+  // additional logic
+  client.showDeleteAccount(showPreferences = true or false)
+}
+```
+
+### Java
+
+```
+@Inject
+BeHealthyClient client;
+.
+.
+.
+void someMethod() {
+  // additional logic
+  client.showDeleteAccount(true or false);
+}
+```
+
+
 ## Troubleshooting
 
 * Recommended Dagger Hilt version: 2.42
