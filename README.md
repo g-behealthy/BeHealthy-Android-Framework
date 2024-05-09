@@ -325,6 +325,23 @@ fun someMethod() {
   client.startEnrollment(token = AnyToken)
 }
 ```
+or you can add a listener for detect complete enroll
+
+```
+@Inject
+lateinit var client: BeHealthyClient
+.
+.
+.
+fun someMethod() {
+  // additional logic
+  client.startEnrollment(token = AnyToken, object : BeHealthyClientCompleteEnrollListener{
+        override fun completeEnrollment() {
+
+        }
+    })
+}
+```
 
 ### Java
 
@@ -336,6 +353,23 @@ void someMethod() {
   // additional logic
   
   client.startEnrollment(AnyToken);
+}
+```
+or you can add a listener for detect complete enroll
+
+```
+@Inject
+BeHealthyClient client;
+
+void someMethod() {
+  // additional logic
+  
+  client.startEnrollment(AnyToken, new BeHealthyClientCompleteEnrollListener() {
+        @Override
+        public void completeEnrollment() {
+            
+        }
+    });
 }
 ```
 
